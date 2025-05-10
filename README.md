@@ -14,7 +14,7 @@
 
 **TL;DR**: Given a raw video, a piece of music, and the corresponding metadata of the given video (i.e., video plot keywords and ), we can generate an audio-visual coherent and appealing video trailer/montage. 
 
-![scheme](img/ipot_schemes.png)
+![scheme](fig/framework.png)
 
 ## ⏳ Project Struture
 ```

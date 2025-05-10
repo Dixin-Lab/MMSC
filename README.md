@@ -47,5 +47,5 @@
 
 Or create the environment by:
 ```commandline 
-pip install -r requirement.txt
+pip install -r requirements.txt
 ```

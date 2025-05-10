@@ -16,7 +16,7 @@
 
 ![scheme](fig/framework.png)
 
-## ⏳ Project Struture
+## ⏳ Project Structure
 ```
 .
 ├── dataset

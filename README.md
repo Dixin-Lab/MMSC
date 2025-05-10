@@ -12,7 +12,7 @@
   </a> -->
 </div>
 
-**TL;DR**: Given a raw video, a piece of music, and the corresponding metadata of the given video (i.e., video plot keywords and category labels), we can generate an appealing video trailer/montage driven by multi-modal semantic consistency. 
+**TL;DR**: Given a raw video, a piece of music, video metadata (i.e., video plot keywords and category labels), and video subtitles, we can generate an appealing video trailer/montage with narration. 
 
 ![scheme](fig/framework.png)
 

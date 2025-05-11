@@ -38,17 +38,16 @@
 |       └── test_emotion_score (npy format, processed emotion score of each movie shot)
 |—— checkpoint
 |   └── network_1500.net
-├── pesudo_score_calculation
-|   ├── trailerness_pesudo_score.py
-|   └── emotion_pesudo_score.py
 |—— model.py
 |—— inference.py
 |—— pre-processing
 |   ├── segmentation
 |   |   ├── shot_segmentation_transnetv2.py
 |   |   └── seg_audio_based_on_shots.py
-|   ├── feature_extratction
-
+|   ├── pesudo_score_calculation
+|   |   ├── trailerness_pesudo_score.py
+|   |   └── emotion_pesudo_score.py
+|   └── feature_extratction
 |—— post-processing
 |   ├── movie_shot_duration_adjustment.py
 |   ├── deepseek_narration_selection.py
@@ -78,7 +77,7 @@ It is worth noting that due to movie copyright issues, we cannot provide the ori
 ### Model ckpt
 We provide the trained model ```network_1500.net``` under the checkpoint folder.
 
-## ✂️ Pre-processing
+## 🎥 Pre-processing
 ### Movie/Trailer Shot Segmentation 
 We use [TransNet V2]([https://github.com/kakaobrain/bassl](https://github.com/soCzech/TransNetV2)), a shot transition detection model, to split each movie into movie shots, the codes can be found in ```./pre-processing/segmentation/shot_segmentation_transnetv2.py```. 
 If you want to perform shot segmentation on your local video, please be aware of modifying the path for reading the video and the path for saving the segmentation results in the code.
@@ -114,7 +113,17 @@ audio_file_path = ''  # music data path
 save_result_base = ''  # save segmentation result
 ```
 
-
 ### Feature Extraction
-We use [ImageBind](https://github.com/facebookresearch/ImageBind) to extract visual features of movie shots and textual features of movie metadata, and use [CLAP](https://github.com/facebookresearch/ImageBind) to extract acoustic features of audio shots. 
+We use [ImageBind](https://github.com/facebookresearch/ImageBind) to extract visual features of movie shots and textual features of movie metadata, and use [CLAP](https://github.com/LAION-AI/CLAP) to extract acoustic features of audio shots. 
 The codes can be found in ```./pre-processing/feature_extraction/```.  
+
+### Pesudo-score calculation
+The code of trailerness pesudo-score calculation can be found in ```./pre-processing/pesudo_score_calculation/trailerness_pesudo_score.py```. 
+The code of emotion pesudo-score calculation can be found in ```./pre-processing/pesudo_score_calculation/emotion_pesudo_score.py```. 
+
+## ✂️ Post-processing
+### 
+
+
+## 🎇 Generate your own trailer!
+When given a long video (e.g., a full movie, video_name.mp4), a piece of music (e.g., audio_name.wav),

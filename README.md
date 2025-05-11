@@ -39,7 +39,7 @@
 |—— checkpoint
 |   └── network_1500.net
 |—— model.py
-|—— inference.py
+|—— trailer_generator.py
 |—— pre-processing
 |   ├── segmentation
 |   |   ├── shot_segmentation_transnetv2.py
@@ -50,7 +50,6 @@
 |   |   └── emotion_pesudo_score.py
 |   └── feature_extratction
 |—— post-processing
-|   ├── movie_shot_duration_adjustment.py
 |   ├── deepseek_narration_selection.py
 |   └── dp_narration_insertion.py
 └── utils
@@ -125,8 +124,19 @@ The trailerness pseudo-score measures the likelihood of each shot being selected
 
 ## ✂️ Post-processing
 ![processing](fig/post-processing.png)
-### 
+### Trailer Narration Selection based on Deepseek-V3
+We use [DeepSeek-V3](https://huggingface.co/deepseek-ai/DeepSeek-V3-0324), a pre-trained large language model (LLM), to analyze and select the movie’s subtitles. As shown in Figure 2(b), the LLM takes the movie’s subtitles with timestamps and some instructional prompts as input and selects some subtitles as the narration of the generated trailer.
+The code can be found in  ```./post-processing/deepseek_narration_selection.py```
 
+### Narration Insertion
+Based on the selected narration timestamps, we determine the positions of the selected narrations through solving a dynamic programming problem. 
+Specifically, we utilize [MiniCPM-V 2.6](https://huggingface.co/openbmb/MiniCPM-V-2_6), a multi-modal LLM for video captioning, to generate a one-sentence description for each shot of the generated trailer.
+Then we extract the textual features of the shot descriptions and the selected narrations by ImageBind, and calculate their pairwise similarities.
+Accordingly, we associate each narration with a shot by maximizing the sum of the similarities between all narrations and the shot descriptions under the constraint that the narrations do not overlap.
+We set the constraint that the time difference between any two narrations must be greater than the duration of the preceding narration.
+Under this constraint, we maximize the sum of the similarity between each narration and its corresponding trailer shot.
+This ensures both that the narrations do not overlap and that each narration is highly relevant to the trailer shot at its insertion position.
+The code can be found in ```./post-processing/dp_narration_insertion.py```
 
 ## 🎇 Generate your own trailer!
 When given a long video (e.g., a full movie, video_name.mp4), a piece of music (e.g., audio_name.wav),

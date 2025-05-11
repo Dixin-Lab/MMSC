@@ -171,3 +171,11 @@ When given a long video (e.g., a full movie, video_name.mp4), a piece of music (
 7) With the processed embeddings, we can just run ``` python trailer_generator.py``` to generate the personalized trailers. 
 
 **Note: the (4) to (6) steps, the python files should be placed at the [ImageBind repo](https://github.com/facebookresearch/ImageBind), e.g., at './ImageBind/' directory.**
+
+## 📖Citation
+Please cite our paper if you use this code or dataset:
+```
+@inproceedings{
+
+}
+```

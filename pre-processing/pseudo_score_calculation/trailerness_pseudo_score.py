@@ -11,8 +11,8 @@ def get_args():
     parser.add_argument("--gpu", type=str, default='0')
 
     # movie-trailer dataset
-    parser.add_argument("--movie_shot_embs", type=str, default="...")
-    parser.add_argument("--trailer_shot_embs", type=str, default="...")
+    parser.add_argument("--movie_shot_embs", type=str, default="movie shot embedding path, npy format")
+    parser.add_argument("--trailer_shot_embs", type=str, default="trailer shot embedding path, npy format")
 
     args = parser.parse_args()
     return args

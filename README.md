@@ -46,6 +46,7 @@
 |   |   └── seg_audio_based_on_shots.py
 |   ├── pesudo_score_calculation
 |   |   ├── trailerness_pesudo_score.py
+|   |   ├── music_mfcc_score.py
 |   |   └── emotion_pesudo_score.py
 |   └── feature_extratction
 |—— post-processing

@@ -79,7 +79,7 @@ We provide the trained model ```network_1500.net``` under the checkpoint folder.
 
 ## 🎥 Pre-processing
 ### Movie/Trailer Shot Segmentation 
-We use [TransNet V2]([https://github.com/kakaobrain/bassl](https://github.com/soCzech/TransNetV2)), a shot transition detection model, to split each movie into movie shots, the codes can be found in ```./pre-processing/segmentation/shot_segmentation_transnetv2.py```. 
+We use [TransNet V2]([https://github.com/kakaobrain/bassl](https://github.com/soCzech/TransNetV2)), a shot transition detection model, to split each movie into movie shots. The codes can be found in ```./pre-processing/segmentation/shot_segmentation_transnetv2.py```. 
 If you want to perform shot segmentation on your local video, please be aware of modifying the path for reading the video and the path for saving the segmentation results in the code.
 
 ```commandline
@@ -105,7 +105,7 @@ audio_base = ""
 ```
 
 ### Music Shot Segmentation
-If you want to perform audio segmentation based on your own music, you can use [Ruptures](https://github.com/deepcharles/ruptures) to split music into music shots, the codes can be found in ```./pre-processing/segmentation/scene_segmentation_ruptures.py```. 
+If you want to perform audio segmentation based on your own music, you can use [Ruptures](https://github.com/deepcharles/ruptures) to split music into music shots, the code can be found in ```./pre-processing/segmentation/scene_segmentation_ruptures.py```. 
 please be aware of modifying the path for reading the audio and the path for saving the segmentation results in the code.
 
 ```commandline
@@ -117,9 +117,9 @@ save_result_base = ''  # save segmentation result
 We use [ImageBind](https://github.com/facebookresearch/ImageBind) to extract visual features of movie shots and textual features of movie metadata, and use [CLAP](https://github.com/LAION-AI/CLAP) to extract acoustic features of audio shots. 
 The codes can be found in ```./pre-processing/feature_extraction/```.  
 
-### Pesudo-score calculation
-The code of trailerness pesudo-score calculation can be found in ```./pre-processing/pesudo_score_calculation/trailerness_pesudo_score.py```. 
-The code of emotion pesudo-score calculation can be found in ```./pre-processing/pesudo_score_calculation/emotion_pesudo_score.py```. 
+### Pseudo-score Calculation
+The code of trailerness pseudo-score calculation can be found in ```./pre-processing/pesudo_score_calculation/trailerness_pesudo_score.py```. 
+The code of emotion pseudo-score calculation can be found in ```./pre-processing/pesudo_score_calculation/emotion_pesudo_score.py```. 
 
 ## ✂️ Post-processing
 ### 

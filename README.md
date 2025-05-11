@@ -118,8 +118,9 @@ We use [ImageBind](https://github.com/facebookresearch/ImageBind) to extract vis
 The codes can be found in ```./pre-processing/feature_extraction/```.  
 
 ### Pseudo-score Calculation
-The code of trailerness pseudo-score calculation can be found in ```./pre-processing/pesudo_score_calculation/trailerness_pesudo_score.py```. 
-The code of emotion pseudo-score calculation can be found in ```./pre-processing/pesudo_score_calculation/emotion_pesudo_score.py```. 
+The code of trailerness and emotion pseudo-score calculation can be found in ```./pre-processing/pesudo_score_calculation/```. 
+The trailerness pseudo-score measures the likelihood of each shot being selected for the trailer, while the emotion pseudo-score reflects the emotional intensity of each movie shot.
+
 
 ## ✂️ Post-processing
 ### 

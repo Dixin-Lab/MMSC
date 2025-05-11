@@ -142,6 +142,8 @@ Under this constraint, we maximize the sum of the similarity between each narrat
 This ensures both that the narrations do not overlap and that each narration is highly relevant to the trailer shot at its insertion position.
 The code can be found in ```./post-processing/dp_narration_insertion.py```
 
+![visualization](fig/visualization.png)
+
 ## 🎇 Generate your own trailer!
 When given a long video (e.g., a full movie, video_name.mp4), a piece of music (e.g., audio_name.wav), video metadata (video plot keywords and category labels), and video narration, 
 1) Resize the input video to 320p, and generate the intra-frame coding version of the input video to make the segmented movie shots more accurate. 

@@ -117,7 +117,7 @@ save_result_base = ''  # save segmentation result
 We use [ImageBind](https://github.com/facebookresearch/ImageBind) to extract visual features of movie shots and textual features of movie metadata, and use [CLAP](https://github.com/LAION-AI/CLAP) to extract acoustic features of audio shots. 
 The codes can be found in ```./pre-processing/feature_extraction/```.  
 
-### Pseudo-score Calculation
+### Pseudo-Score Calculation
 The code of trailerness and emotion pseudo-score calculation can be found in ```./pre-processing/pesudo_score_calculation/```. 
 The trailerness pseudo-score measures the likelihood of each shot being selected for the trailer, while the emotion pseudo-score reflects the emotional intensity of each movie shot.
 

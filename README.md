@@ -144,3 +144,30 @@ The code can be found in ```./post-processing/dp_narration_insertion.py```
 
 ## 🎇 Generate your own trailer!
 When given a long video (e.g., a full movie, video_name.mp4), a piece of music (e.g., audio_name.wav), video metadata (video plot keywords and category labels), and video narration, 
+1) Resize the input video to 320p, and generate the intra-frame coding version of the input video to make the segmented movie shots more accurate. 
+
+``` python ./utils/intra_video_ffmpeg.py; python ./utils/rescale_movies_ffmpeg.py```
+
+2) Segment the input 320p video into movie shots through BaSSL.
+
+``` python ./pre-processing/segmentation/scene_segmentation_bassl.py```
+
+3) Segment the input music into music shots through ruptures.
+
+``` python ./pre-processing/segmentation/audio_segmentation_ruptures.py```
+
+4) Encode the movie shots into shot-level visual embeddings through ImageBind.
+
+``` python ./pre-processing/feature_extraction/extract_video_embs.py```
+
+5) Encode the music shots into shot-level acoustic embeddings through ImageBind.
+
+``` python ./pre-processing/feature_extraction/extract_audio_embs.py```
+
+6) Encode the movie metadata into text embeddings through ImageBind.
+
+``` python ./pre-processing/feature_extraction/extract_text_embs.py```
+
+7) With the processed embeddings, we can just run ``` python trailer_generator.py``` to generate the personalized trailers. 
+
+**Note: the (4) to (6) steps, the python files should be placed at the [ImageBind repo](https://github.com/facebookresearch/ImageBind), e.g., at './ImageBind/' directory.**

@@ -132,7 +132,7 @@ The code can be found in  ```./post-processing/deepseek_narration_selection.py``
 Based on the selected narration timestamps, we determine the positions of the selected narrations through solving a dynamic programming problem. 
 Specifically, we utilize [MiniCPM-V 2.6](https://huggingface.co/openbmb/MiniCPM-V-2_6), a multi-modal LLM for video captioning, to generate a one-sentence description for each shot of the generated trailer.
 Then we extract the textual features of the shot descriptions and the selected narrations by ImageBind, and calculate their pairwise similarities.
-Accordingly, we associate each narration with a shot by maximizing the sum of the similarities between all narrations and the shot descriptions under the constraint that the narrations do not overlap.
+Accordingly, we associate each narration with a shot by maximizing the sum of the similarities between all narrations and the shot descriptions under the constraint that the narrations do not overlap.
 We set the constraint that the time difference between any two narrations must be greater than the duration of the preceding narration.
 Under this constraint, we maximize the sum of the similarity between each narration and its corresponding trailer shot.
 This ensures both that the narrations do not overlap and that each narration is highly relevant to the trailer shot at its insertion position.

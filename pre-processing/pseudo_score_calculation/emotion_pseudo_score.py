@@ -11,10 +11,10 @@ def get_args():
     parser.add_argument("--gpu", type=str, default='4')
 
     # movie-trailer dataset
-    parser.add_argument("--movie_shot_embs", type=str, default="...")
-    parser.add_argument("--trailer_shot_embs", type=str, default="...")
-    parser.add_argument("--movie_trailer_similarity", type=str, default="...")
-    parser.add_argument("--music_energy_coefficient", type=str, default="...")
+    parser.add_argument("--movie_shot_embs", type=str, default="movie shot embedding path, npy format")
+    parser.add_argument("--trailer_shot_embs", type=str, default="trailer shot embedding path, npy format")
+    parser.add_argument("--movie_trailer_similarity", type=str, default="output path of trailerness_pseudo_score.py")
+    parser.add_argument("--music_energy_coefficient", type=str, default="output path of music_mfcc_score.py")
     
     args = parser.parse_args()
     return args

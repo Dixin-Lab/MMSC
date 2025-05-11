@@ -14,7 +14,7 @@
 
 **TL;DR**: Given a raw video, a piece of music, video metadata (i.e., video plot keywords and category labels), and video subtitles, we can generate an appealing video trailer/montage with narration. 
 
-![scheme](fig/framework.png)
+![framwork](fig/framework.png)
 
 ## ⏳ Project Structure
 ```
@@ -123,6 +123,7 @@ The trailerness pseudo-score measures the likelihood of each shot being selected
 
 
 ## ✂️ Post-processing
+![processing](fig/post-processing.png)
 ### 
 
 

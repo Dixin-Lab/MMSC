@@ -43,12 +43,16 @@
 |   └── emotion_pesudo_score.py
 |—— model.py
 |—— inference.py
+|—— pre-processing
+|   ├── segmentation
+|   |   ├── shot_segmentation_transnetv2.py
+|   |   └── seg_audio_based_on_shots.py
+|   ├── feature_extratction
+
 |—— post-processing
 |   ├── movie_shot_duration_adjustment.py
 |   ├── deepseek_narration_selection.py
 |   └── dp_narration_insertion.py
-├── feature_extratction
-├── shot_segmentation
 └── utils
 ```
 ## ⚙️ Main Dependencies
@@ -74,8 +78,9 @@ It is worth noting that due to movie copyright issues, we cannot provide the ori
 ### Model ckpt
 We provide the trained model ```network_1500.net``` under the checkpoint folder.
 
-### Movie Shot Segmentation 
-We use [TransNet V2]([https://github.com/kakaobrain/bassl](https://github.com/soCzech/TransNetV2)), a shot transition detection model, to split each movie into movie shots, the codes can be found in ```./segmentation/scene_segmentation_transnetv2.py```. 
+## ✂️ Pre-processing
+### Movie/Trailer Shot Segmentation 
+We use [TransNet V2]([https://github.com/kakaobrain/bassl](https://github.com/soCzech/TransNetV2)), a shot transition detection model, to split each movie into movie shots, the codes can be found in ```./pre-processing/segmentation/shot_segmentation_transnetv2.py```. 
 If you want to perform shot segmentation on your local video, please be aware of modifying the path for reading the video and the path for saving the segmentation results in the code.
 
 ```commandline
@@ -86,10 +91,10 @@ save_scene_dir_base = '' # save directory of scene json files
 finished_files = os.listdir(save_scene_dir_base)
 ```
 
-### Segment audio based on movie shots
-During the training phase, in order to obtain aligned movie shots and audio shots from each official trailer, we segment the official trailer audio according to the duration of the movie shots.
-The codes can be found in ```./segmentation/seg_audio_based_on_shots.py```. 
-If you want to perform audio segmentation based on your movies shot segmentation, please be aware of modifying the path for reading the audio and the path for saving the segmentation results in the code.
+### Segment audio based on trailer shots
+During the training phase, in order to obtain aligned trailer shots and audio shots from each official trailer, we segment the official trailer audio according to the duration of the trailer shots.
+The codes can be found in ```./pre-processing/segmentation/seg_audio_based_on_shots.py```. 
+If you want to perform audio segmentation based on your trailer shot segmentation, please be aware of modifying the path for reading the audio and the path for saving the segmentation results in the code.
 
 ```commandline
 seg_json = dict()  # save the segmentation info of audio 
@@ -100,16 +105,16 @@ scene_trailer_base = ""
 audio_base = ""
 ```
 
-### Music Shot Segmentation 
-We use [Ruptures](https://github.com/deepcharles/ruptures) to split music into movie shots and scenes, the codes can be found in ```./segmentation/scene_segmentation_ruptures.py```. 
-If you want to perform shot segmentation on your local audio, please be aware of modifying the path for reading the audio and the path for saving the segmentation results in the code.
+### Music Shot Segmentation
+If you want to perform audio segmentation based on your own music, you can use [Ruptures](https://github.com/deepcharles/ruptures) to split music into music shots, the codes can be found in ```./pre-processing/segmentation/scene_segmentation_ruptures.py```. 
+please be aware of modifying the path for reading the audio and the path for saving the segmentation results in the code.
 
 ```commandline
 audio_file_path = ''  # music data path
 save_result_base = ''  # save segmentation result
 ```
-During testing phase, given a movie and a piece of music, we use BaSSL to segment the movie shots and Ruptures to segment the music shots.
 
 
 ### Feature Extraction
-We use [ImageBind](https://github.com/facebookresearch/ImageBind) to extract visual features of movie shots and acoustic features of audio shots, the codes can be found in ```./feature_extraction/```. 
+We use [ImageBind](https://github.com/facebookresearch/ImageBind) to extract visual features of movie shots and textual features of movie metadata, and use [CLAP](https://github.com/facebookresearch/ImageBind) to extract acoustic features of audio shots. 
+The codes can be found in ```./pre-processing/feature_extraction/```.  

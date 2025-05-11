@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/8fb0f162-4427-4106-87d8-9e4f8cfd42cb)# [IJCAI 2025] Weakly-Supervised Movie Trailer Generation Driven by Multi-Modal Semantic Consistency
+ [IJCAI 2025] Weakly-Supervised Movie Trailer Generation Driven by Multi-Modal Semantic Consistency
 
 <div style="display: flex; justify-content: center; align-items: center;">
   <a href="https://github.com/Dixin-Lab/MMSC" style="margin: 0 2px;">

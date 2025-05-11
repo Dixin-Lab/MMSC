@@ -21,16 +21,32 @@
 .
 ├── dataset
 |   ├── training_dataset
-|   |   ├── audio_shot_embs (npy format, segmented audio shots)
-|   |   ├── movie_shot_embs (npy format, segmented movie shots)
-|   |   └── trailer_shot_embs (npy format, segmented trailer shots)
+|   |   ├── train_audio_shot_embs (npy format, segmented audio shots)
+|   |   ├── train_movie_shot_embs (npy format, segmented movie shots)
+|   |   ├── train_trailer_shot_embs (npy format, segmented trailer shots)
+|   |   ├── train_labels_embs (npy format, movie category labels)
+|   |   ├── train_keywords_embs (npy format, movie plot keywords)
+|   |   ├── train_trailerness_score (npy format, processed trailerness score of each movie shot)
+|   |   └── train_emotion_score (npy format, processed emotion score of each movie shot)
 |   └── test_dataset
-|       ├── audio_shot_embs (npy format, segmented audio shots)
-|       ├── movie_shot_embs (npy format, segmented movie shots)
-|       └── trailer_shot_embs (npy format, segmented trailer shots)
+|       ├── test_audio_shot_embs (npy format, segmented audio shots)
+|       ├── test_movie_shot_embs (npy format, segmented movie shots)
+|       ├── test_trailer_shot_embs (npy format, segmented trailer shots)
+|       ├── test_labels_embs (npy format, movie category labels)
+|       ├── test_keywords_embs (npy format, movie plot keywords)
+|       ├── test_trailerness_score (npy format, processed trailerness score of each movie shot)
+|       └── test_emotion_score (npy format, processed emotion score of each movie shot)
 |—— checkpoint
 |   └── network_1500.net
-├── pesudo-score_calculation
+├── pesudo_score_calculation
+|   ├── trailerness_pesudo_score.py
+|   └── emotion_pesudo_score.py
+|—— model.py
+|—— inference.py
+|—— post-processing
+|   ├── movie_shot_duration_adjustment.py
+|   ├── deepseek_narration_selection.py
+|   └── dp_narration_insertion.py
 ├── feature_extratction
 ├── shot_segmentation
 └── utils

@@ -158,21 +158,25 @@ When given a long video (e.g., a full movie, video_name.mp4), a piece of music (
 
 ``` python ./pre-processing/segmentation/audio_segmentation_ruptures.py```
 
-4) Encode the movie shots into shot-level visual embeddings through ImageBind.
+4) Calculate the MFCC score of segmented music shots.
+
+``` python ./pre-processing/pesudo_score_calculation/music_mfcc_score.py```
+
+5) Encode the movie shots into shot-level visual embeddings through ImageBind.
 
 ``` python ./pre-processing/feature_extraction/extract_video_embs.py```
 
-5) Encode the music shots into shot-level acoustic embeddings through ImageBind.
+6) Encode the music shots into shot-level acoustic embeddings through ImageBind.
 
 ``` python ./pre-processing/feature_extraction/extract_audio_embs.py```
 
-6) Encode the movie metadata into text embeddings through ImageBind.
+7) Encode the movie metadata into text embeddings through ImageBind.
 
 ``` python ./pre-processing/feature_extraction/extract_text_embs.py```
 
-7) With the processed embeddings, we can just run ``` python trailer_generator.py``` to generate the personalized trailers. 
+8) With the processed embeddings, we can just run ``` python trailer_generator.py``` to generate the personalized trailers. 
 
-**Note: the (4) to (6) steps, the python files should be placed at the [ImageBind repo](https://github.com/facebookresearch/ImageBind), e.g., at './ImageBind/' directory.**
+**Note: the (5) to (7) steps, the python files should be placed at the [ImageBind repo](https://github.com/facebookresearch/ImageBind), e.g., at './ImageBind/' directory.**
 
 ## 📖Citation
 Please cite our paper if you use this code or dataset:

@@ -17,7 +17,7 @@
 ![framwork](fig/framework.png)
 
 ## 👀 Generated Trailer Demo
-[Here]([https://drive.google.com/drive/folders/1WhIYdZgL7N4XBV9-uAl5qUzikkoKnFDZ?hl=zh-CN)) are some example trailers for two movies (**300 Rise of an Empire** and **The Hobbit**) generated using our approach, which you can download and view from the link.
+[Here](https://drive.google.com/drive/folders/1WhIYdZgL7N4XBV9-uAl5qUzikkoKnFDZ?hl=zh-CN) are some example trailers for two movies (**300 Rise of an Empire** and **The Hobbit**) generated using our approach, which you can download and view from the link.
 
 ## ⏳ Project Structure
 ```
@@ -83,7 +83,7 @@ We provide the trained model ```network_1500.net``` under the checkpoint folder.
 
 ## 🎥 Pre-processing
 ### Movie/Trailer Shot Segmentation 
-We use [TransNet V2]([https://github.com/kakaobrain/bassl](https://github.com/soCzech/TransNetV2)), a shot transition detection model, to split each movie into movie shots. The codes can be found in ```./pre-processing/segmentation/shot_segmentation_transnetv2.py```. 
+We use [TransNet V2][https://github.com/soCzech/TransNetV2), a shot transition detection model, to split each movie into movie shots. The codes can be found in ```./pre-processing/segmentation/shot_segmentation_transnetv2.py```. 
 If you want to perform shot segmentation on your local video, please be aware of modifying the path for reading the video and the path for saving the segmentation results in the code.
 
 ```commandline

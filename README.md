@@ -83,7 +83,7 @@ We provide the trained model ```network_1500.net``` under the checkpoint folder.
 
 ## 🎥 Pre-processing
 ### Movie/Trailer Shot Segmentation 
-We use [TransNet V2][https://github.com/soCzech/TransNetV2), a shot transition detection model, to split each movie into movie shots. The codes can be found in ```./pre-processing/segmentation/shot_segmentation_transnetv2.py```. 
+We use [TransNet V2](https://github.com/soCzech/TransNetV2), a shot transition detection model, to split each movie into movie shots. The codes can be found in ```./pre-processing/segmentation/shot_segmentation_transnetv2.py```. 
 If you want to perform shot segmentation on your local video, please be aware of modifying the path for reading the video and the path for saving the segmentation results in the code.
 
 ```commandline

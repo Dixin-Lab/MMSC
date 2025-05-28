@@ -14,6 +14,9 @@
 
 **TL;DR**: Given a raw video, a piece of music, video metadata (i.e., video plot keywords and category labels), and video subtitles, we can generate an appealing video trailer/montage with narration. 
 
+## 👀 Generated Trailer Demo
+[Here]([https://drive.google.com/drive/folders/1WhIYdZgL7N4XBV9-uAl5qUzikkoKnFDZ?hl=zh-CN)) are some example trailers for two movies (**300 Rise of an Empire** and **The Hobbit**) generated using our approach, which you can download and view from the link.
+
 ![framwork](fig/framework.png)
 
 ## ⏳ Project Structure

@@ -168,7 +168,7 @@ def get_duration_from_ffmpeg(filename):
 
 
 def seg_video_by_timestamp(src_path, j, l_t, duration_t, save_seg_shots_base2):
-    # movie_base = "/home/yutong/yutong2/workspace/dataset/Testmovie-8/test_movies_8_320p/"
+    # movie_base = "./test_movies_8_320p/"
     # name = movidx#.split('-')[0]
     # src_path = osp.join(movie_base, name + '.mp4')
 
@@ -213,23 +213,23 @@ def video_seg_concat_by_shot_list(movidx, select_shot_list):
     save_seg_shots_base2 = osp.join(save_seg_shots_base, movidx)
     os.makedirs(save_seg_shots_base2, exist_ok=True)
 
-    scene_movie_base = "/home/yutong/yutong2/workspace/dataset/Testmovie-8/test_movies_8_320_transnetv2_info_json"
+    scene_movie_base = "./test_movies_8_320_transnetv2_info_json"
     scene_movie_info_path = osp.join(scene_movie_base, movidx + '.json')
     with open(scene_movie_info_path, 'r') as f:
         scene_movie_info = json.load(f)
 
-    bar_seg_info_path = f"/home/yutong/yutong2/workspace/dataset/MovieSet/ruptures_audio_segmentation_test_MT_2s.json"
+    bar_seg_info_path = f"./ruptures_audio_segmentation_test_MT_2s.json"
     with open(bar_seg_info_path, 'r') as f:
         bar_seg_info = json.load(f)[movidx]
     
-    #movie_base = "/home/yutong/yutong2/workspace/dataset/Testmovie-8/test_movies_8_320p_intra/"
-    movie_base = "/home/yutong/yutong2/workspace/dataset/MovieSet/test_movies_intra"
+    #movie_base = "./test_movies_8_320p_intra/"
+    movie_base = "./test_movies_intra"
     movie_path = osp.join(movie_base, movidx + '.mp4')
     m_fps = get_video_fps(movie_path)
 
     print(f'movie fps:{m_fps}')
 
-    # trailer_base = "/home/yutong/yutong2/workspace/dataset/Testmovie-8/test_trailers_8_320p/"
+    # trailer_base = "./test_trailers_8_320p/"
     # trailer_path = osp.join(trailer_base, movidx + '.mp4')
     # t_fps = get_video_fps(trailer_path)
 
@@ -239,7 +239,7 @@ def video_seg_concat_by_shot_list(movidx, select_shot_list):
     shot_length = cal_movie_length(scene_movie_info, m_fps)
     audio_length = cal_audio_length_rup(bar_seg_info)
 
-    trailerness_score_base = '/home/yutong/yutong2/workspace/movie-process/test_concat_shots/save_trailerness_predict' 
+    trailerness_score_base = './save_trailerness_predict' 
     trailerness_score_path = os.path.join(trailerness_score_base, f'{movidx}.npy')
     sig_score = np.load(trailerness_score_path)
 
@@ -356,7 +356,7 @@ def video_seg_concat_by_shot_list(movidx, select_shot_list):
     cmd2 = 'ffmpeg -i {} -c:v copy -an {} -y'.format(output_file_path, tmp_video_file_path)
     os.system(cmd2)
 
-    mt_trailer_base = '/home/yutong/yutong2/workspace/dataset/MovieSet/test_trailer_MT'
+    mt_trailer_base = './test_trailer_MT'
     mt_trailer_path = os.path.join(mt_trailer_base, f'{movidx}.mp4')
     output_file_audio = 'output-test-' + str(movidx) + '-adjust_duration-withaudio-1080.mp4'
     output_file_audio_path = os.path.join(output_video_base, output_file_audio)
@@ -383,23 +383,23 @@ def video_seg_concat_directly_by_shot_list(movidx, select_shot_list):
     save_seg_shots_base2 = osp.join(save_seg_shots_base, movidx)
     os.makedirs(save_seg_shots_base2, exist_ok=True)
 
-    scene_movie_base = "/home/yutong/yutong2/workspace/dataset/Testmovie-8/test_movies_8_320_transnetv2_info_json"
+    scene_movie_base = "./test_movies_8_320_transnetv2_info_json"
     scene_movie_info_path = osp.join(scene_movie_base, movidx + '.json')
     with open(scene_movie_info_path, 'r') as f:
         scene_movie_info = json.load(f)
 
-    bar_seg_info_path = f"/home/yutong/yutong2/workspace/dataset/MovieSet/ruptures_audio_segmentation_test_MT_2s.json"
+    bar_seg_info_path = f"./ruptures_audio_segmentation_test_MT_2s.json"
     with open(bar_seg_info_path, 'r') as f:
         bar_seg_info = json.load(f)[movidx]
 
-    movie_base = "/home/yutong/yutong2/workspace/dataset/Testmovie-8/test_movies_8_320p_intra/"
-    #movie_base = "/home/yutong/yutong2/workspace/dataset/MovieSet/test_movies_intra"
+    movie_base = "./test_movies_8_320p_intra/"
+    #movie_base = "./test_movies_intra"
     movie_path = osp.join(movie_base, movidx + '.mp4')
     m_fps = get_video_fps(movie_path)
 
     print(f'movie fps:{m_fps}')
 
-    trailer_base = "/home/yutong/yutong2/workspace/dataset/Testmovie-8/test_trailers_8_320p/"
+    trailer_base = "./test_trailers_8_320p/"
     trailer_path = osp.join(trailer_base, movidx + '.mp4')
     t_fps = get_video_fps(trailer_path)
 
